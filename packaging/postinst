@@ -1,0 +1,27 @@
+#!/bin/sh
+# postinst do BBGHOST — cria o config.env na primeira instalação (sem
+# sobrescrever o do usuário em upgrades) e ajusta permissões.
+set -e
+
+HOME_DIR="/opt/bbghost"
+
+case "$1" in
+    configure)
+        # cria config.env a partir do default só se ainda não existir
+        if [ ! -f "$HOME_DIR/config.env" ] && [ -f "$HOME_DIR/config.env.default" ]; then
+            cp "$HOME_DIR/config.env.default" "$HOME_DIR/config.env"
+        fi
+        # executável onde precisa
+        chmod 0755 "$HOME_DIR/opsec.sh" 2>/dev/null || true
+        chmod 0755 "$HOME_DIR"/modules/*.sh 2>/dev/null || true
+        chmod 0755 /usr/bin/bbghost 2>/dev/null || true
+
+        echo "BBGHOST instalado em $HOME_DIR."
+        echo "Configure a VPN:   sudo bbghost setup     (ou: sudo bbghost gui)"
+        echo "Ativar / desligar: sudo bbghost on | off"
+        ;;
+    abort-upgrade|abort-remove|abort-deconfigure)
+        ;;
+esac
+
+exit 0

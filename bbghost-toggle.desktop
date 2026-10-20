@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=BBGHOST Toggle (Shell)
+Comment=Liga/desliga OPSEC direto (modo shell — VPN, kill switch, DNS, MAC spoof)
+Exec=bash -c 'if [ -f /opt/bbghost/status.lock ]; then pkexec /opt/bbghost/opsec.sh off; else pkexec /opt/bbghost/opsec.sh on; fi'
+Icon=security-high
+Terminal=false
+Type=Application
+Categories=Utility;Security;

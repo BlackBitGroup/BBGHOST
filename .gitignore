@@ -1,0 +1,47 @@
+# ==============================================================
+# BBGHOST — .gitignore
+# NUNCA commitar segredos (chaves de VPN), estado de runtime ou logs.
+# ==============================================================
+
+# Estado de runtime / sessão
+.state/
+status.lock
+*.log
+opsec.log
+openvpn.log
+
+# Perfis de missão — PODEM CONTER CHAVES PRIVADAS de VPN (wg.conf)
+profiles/
+
+# Configs de VPN (chave privada!) — nunca versionar
+wg/
+*.conf
+*.ovpn
+!*.example.conf
+
+# Manifesto de integridade local (gere no release com 'integrity sign')
+.integrity/
+
+# Segredo/chave do operador, por via das dúvidas
+*.key
+*.pem
+*_private*
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# SO / editores
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
+
+# Artefatos de build (.deb vai pro Release, não pro git)
+dist/
+*.deb

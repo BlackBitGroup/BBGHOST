@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=BBGHOST (Modo Gráfico)
+Comment=Painel futurista + navegador Tor embutido (perfil bbghost-gx)
+Exec=pkexec /opt/bbghost/opsec.sh gui
+Icon=security-high
+Terminal=false
+Type=Application
+Categories=Utility;Security;Network;

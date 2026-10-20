@@ -1,0 +1,62 @@
+/* ==============================================================
+   BBGHOST — userChrome.css
+   Re-tematiza o CHROME do Firefox (barras, abas) no visual Opera-GX
+   dark-neon do perfil bbghost-gx. Requer, no user.js:
+     toolkit.legacyUserProfileCustomizations.stylesheets = true
+   Fica em <perfil>/chrome/userChrome.css.
+   ============================================================== */
+:root{
+  --bbg-bg:#0a0a12;
+  --bbg-bg2:#10101c;
+  --bbg-neon:#ff1e5a;
+  --bbg-neon2:#13e0e8;
+  --bbg-line:#23233a;
+  --bbg-txt:#e8e9f3;
+}
+
+/* Barra de navegação e de abas */
+#navigator-toolbox{
+  background:linear-gradient(180deg,var(--bbg-bg2),var(--bbg-bg)) !important;
+  border-bottom:1px solid var(--bbg-neon) !important;
+  box-shadow:0 0 18px #ff1e5a33 !important;
+}
+#nav-bar, #PersonalToolbar{
+  background:transparent !important;
+  border:none !important;
+}
+
+/* Abas */
+.tabbrowser-tab .tab-background{
+  background:var(--bbg-bg2) !important;
+  border:1px solid var(--bbg-line) !important;
+  border-radius:4px !important;
+  margin:3px 2px !important;
+}
+.tabbrowser-tab[selected] .tab-background{
+  background:linear-gradient(180deg,#1a1226,#0d0d18) !important;
+  border-color:var(--bbg-neon) !important;
+  box-shadow:0 0 12px #ff1e5a55, inset 0 1px 0 var(--bbg-neon) !important;
+}
+.tab-label{ color:var(--bbg-txt) !important; letter-spacing:.3px !important; }
+.tabbrowser-tab[selected] .tab-label{ color:#fff !important; text-shadow:0 0 8px var(--bbg-neon) !important; }
+
+/* Barra de URL */
+#urlbar{
+  background:var(--bbg-bg) !important;
+  border:1px solid var(--bbg-line) !important;
+  border-radius:4px !important;
+  color:var(--bbg-txt) !important;
+}
+#urlbar[focused]{
+  border-color:var(--bbg-neon2) !important;
+  box-shadow:0 0 14px #13e0e855 !important;
+}
+#urlbar-input{ color:var(--bbg-txt) !important; }
+
+/* Botões da toolbar com leve glow no hover */
+.toolbarbutton-1:hover{
+  filter:drop-shadow(0 0 6px var(--bbg-neon2)) !important;
+}
+
+/* Fundo geral dos campos */
+#urlbar, #searchbar{ font-family:"DejaVu Sans Mono",monospace !important; }

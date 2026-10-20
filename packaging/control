@@ -1,0 +1,21 @@
+Package: bbghost
+Version: 1.0.0
+Section: net
+Priority: optional
+Architecture: all
+Depends: bash, wireguard-tools, nftables, iproute2, curl, macchanger, python3, python3-tk
+Recommends: tor, proxychains4, firefox-esr
+Suggests: openvpn, gnupg
+Maintainer: Black Bit <dev@blackbit.example>
+Homepage: https://github.com/BlackBitGroup/BBGHOST
+Description: OPSEC fail-closed toggle para o operador
+ BBGHOST liga/desliga, num comando, uma cadeia de OPSEC fail-closed:
+ VPN (WireGuard/OpenVPN, qualquer provedor) + kill switch (nftables) +
+ DNS travado + Tor + MAC/hostname falsos. Se algo nao confirma que subiu,
+ a rede continua travada e nunca vaza.
+ .
+ Inclui modo shell e uma interface grafica nativa (Tkinter), perfis de
+ missao, multi-hop (VPN sobre VPN), isolamento estilo Whonix, verificacao
+ de integridade e fail-closed no boot.
+ .
+ Ferramenta defensiva de protecao da propria identidade/conexao.
